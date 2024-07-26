@@ -1,0 +1,217 @@
+﻿@model MusicTool.Models.DTO.SongAndCateroryList
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/css/MTHome.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/HoverImg.css" rel="stylesheet" asp-append-version="true" />
+}
+<div class="MTHome">
+    <div class="container-md py-3">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="~/images/Baner/1715261644045_org.png"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="~/images/Baner/1715350448938_org.png"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/images/Baner/1715350891258_org.png"
+                        class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="col-md">
+                <h3 class="title text-uppercase">Nhạc việt</h3>
+                <div class="row mb-4">
+                    @foreach (var item in Model.SongList)
+                    {
+                        <div class="col-md-2 songs">
+                            <a asp-action="SongDetail" asp-route-id="@item.Id" class="img-hover">
+                                <img src="~/images/Songs/@item.PhotoName" class="img-fluid" alt="@item.PhotoName" />
+                                <div class="overlay">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                            </a>
+                            <a asp-action="SongDetail" asp-route-id="@item.Id" class="name">@item.Name</a>
+                            <div class="singer-name">
+                                @Html.Raw(item.Song_Singer != null && item.Song_Singer.Any()
+                                         ? string.Join(" - ", item.Song_Singer.Select(x => x.Singer.Name))
+                                         : "Chưa có")
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md">
+                <h3 class="title text-uppercase">Mới phát hành</h3>
+                <div class="row mb-4">
+                    @foreach (var item in Model.NewSong)
+                    {
+                        <div class="col-md-2 songs">
+                            <a asp-action="SongDetail" asp-route-id="@item.Id" class="img-hover">
+                                <img src="~/images/Songs/@item.PhotoName" class="img-fluid" alt="@item.PhotoName" />
+                                <div class="overlay">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                            </a>
+                            <a asp-action="SongDetail" asp-route-id="@item.Id" class="name">@item.Name</a>
+                            <div class="singer-name">
+                                @Html.Raw(item.Song_Singer != null && item.Song_Singer.Any()
+                                         ? string.Join(" - ", item.Song_Singer.Select(x => x.Singer.Name))
+                                         : "Chưa có")
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md">
+                <h3 class="title text-uppercase">Tâm trạng</h3>
+                <div class="row mb-4">
+                    @foreach (var item in Model.SongList)
+                    {
+                        <div class="col-md-2 songs">
+                            <a asp-action="SongDetail" asp-route-id="@item.Id" class="img-hover">
+                                <img src="~/images/Songs/@item.PhotoName" class="img-fluid" alt="@item.PhotoName" />
+                                <div class="overlay">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                            </a>
+                            <a asp-action="SongDetail" asp-route-id="@item.Id" class="name">@item.Name</a>
+                            <div class="singer-name">
+                                @Html.Raw(item.Song_Singer != null && item.Song_Singer.Any()
+                                         ? string.Join(" - ", item.Song_Singer.Select(x => x.Singer.Name))
+                                         : "Chưa có")
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="container">
+                <h3 class="title text-uppercase">BXH bài hát</h3>
+                <!-- Nav pills -->
+                <ul class="nav nav-pills" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="pill" href="#home">Nghe nhiều</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" href="#menu1">Tải nhiều</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" href="#menu2">Mới nhất</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div id="home" class="container tab-pane active">
+                        <br>
+                        <ul class="list-group list-group-flush">
+                            @for (int i = 0; i < Model.ListeningRantings.Count(); i++)
+                            {
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <a asp-action="SongDetail" asp-route-id="@Model.ListeningRantings[i].Id" class="col-md-3 p-0 BXH-position">
+                                            <img src="~/images/Songs/@Model.ListeningRantings[i].PhotoName" class="img-fluid song-img-BXH" alt="@Model.ListeningRantings[i].PhotoName" />
+                                            <div class="d-flex justify-content-center position">@(i+1)</div>
+                                        </a>
+                                        <div class="col-md-9 BXH-content">
+                                            <a asp-action="SongDetail" asp-route-id="@Model.ListeningRantings[i].Id" class="song-name-BXH">
+                                                @Model.ListeningRantings[i].Name
+                                            </a>
+                                            <div class="singer-name-BXH">
+                                                @Html.Raw(Model.ListeningRantings[i].Song_Singer != null && Model.ListeningRantings[i].Song_Singer.Any()
+                                                         ? string.Join(" - ", Model.ListeningRantings[i].Song_Singer.Select(x => x.Singer.Name))
+                                                         : "Chưa có")
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div id="menu1" class="container tab-pane fade">
+                        <br>
+                        <ul class="list-group list-group-flush">
+                            @for (int i = 0; i < Model.DownloadRantings.Count(); i++)
+                            {
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <a asp-action="SongDetail" asp-route-id="@Model.DownloadRantings[i].Id" class="col-md-3 p-0 BXH-position">
+                                            <img src="~/images/Songs/@Model.DownloadRantings[i].PhotoName" class="img-fluid song-img-BXH" alt="@Model.DownloadRantings[i].PhotoName" />
+                                            <div class="d-flex justify-content-center position">@(i + 1)</div>
+                                        </a>
+                                        <div class="col-md-9 BXH-content">
+                                            <a asp-action="SongDetail" asp-route-id="@Model.DownloadRantings[i].Id" class="song-name-BXH">
+                                                @Model.DownloadRantings[i].Name
+                                            </a>
+                                            <div class="singer-name-BXH">
+                                                @Html.Raw(Model.DownloadRantings[i].Song_Singer != null && Model.DownloadRantings[i].Song_Singer.Any()
+                                                         ? string.Join(" - ", Model.DownloadRantings[i].Song_Singer.Select(x => x.Singer.Name))
+                                                         : "Chưa có")
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div id="menu2" class="container tab-pane fade">
+                        <br>
+                        <ul class="list-group list-group-flush">
+                            @for (int i = 0; i < Model.NewSong.Count(); i++)
+                            {
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <a asp-action="SongDetail" asp-route-id="@Model.NewSong[i].Id" class="col-md-3 p-0 BXH-position">
+                                            <img src="~/images/Songs/@Model.NewSong[i].PhotoName" class="img-fluid song-img-BXH" alt="@Model.NewSong[i].PhotoName" />
+                                            <div class="d-flex justify-content-center position">@(i + 1)</div>
+                                        </a>
+                                        <div class="col-md-9 BXH-content">
+                                            <a asp-action="SongDetail" asp-route-id="@Model.NewSong[i].Id" class="song-name-BXH">
+                                                @Model.NewSong[i].Name
+                                            </a>
+                                            <div class="singer-name-BXH">
+                                                @Html.Raw(Model.NewSong[i].Song_Singer != null && Model.NewSong[i].Song_Singer.Any()
+                                                         ? string.Join(" - ", Model.NewSong[i].Song_Singer.Select(x => x.Singer.Name))
+                                                         : "Chưa có")
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <h3 class="title text-uppercase">Thể loại hot</h3>
+                @foreach (var item in Model.CategoryList)
+                {
+                    <div class="row mb-2">
+                        <a asp-action="SongList" asp-route-id="@item.Id">
+                            <img class="img-fluid" src="~/images/typesimg/@item.PhotoName" alt="@item.PhotoName" />
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

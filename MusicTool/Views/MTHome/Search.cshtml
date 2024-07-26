@@ -1,0 +1,66 @@
+﻿@model MusicTool.Models.DTO.SongAndCategoryPagination
+
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/css/Search.css" rel="stylesheet" asp-append-version="true" />
+}
+
+<div class="search">
+    <div class="row">
+        <div class="col-sm-8 search-list">
+            <div class="search-title">
+                Kết quả tìm kiếm: @Model.Key
+            </div>
+            @if (Model.SongList == null)
+            {
+                <div class="not-data">
+                    <img src="~/images/icon/compact-disc_9316256.png" class="img-fluid" alt="compact-disc_9316256.png" />
+                    <p>
+                        Không có kết quả nào cho từ khóa @Model.Key
+                    </p>
+                </div>
+            }
+            else
+            {
+                <ul class="list-group list-group-flush">
+                    @foreach (var item in Model.SongList)
+                    {
+                        <li class="list-group-item">
+                            <div class="row align-items-center">
+                                <div class="col-sm-2 song-img">
+                                    <img src="~/images/Songs/@item.PhotoName" class="img-fluid" alt="@item.PhotoName" />
+                                </div>
+                                <div class="col-sm-9 content-song">
+                                    <a asp-action="SongDetail" asp-route-id="@item.Id" class="name">@item.Name</a>
+                                    <div class="singer-name">
+                                        @Html.Raw(item.Song_Singer != null && item.Song_Singer.Any()
+                                                 ? string.Join(" - ", item.Song_Singer.Select(x => x.Singer.Name))
+                                                 : "Chưa có")
+                                    </div>
+                                </div>
+                                <a asp-action="SongDetail" asp-route-id="@item.Id" class="col-sm-1 play-icon">
+                                    <i class="fa-solid fa-play icon"></i>
+                                </a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+                <partial name="_Paging" />
+            }
+        </div>
+        <div class="col-sm-4 category-list">
+            <div class="category-title text-uppercase">
+                Thể loại
+            </div>
+            @foreach (var item in Model.CategoryList)
+            {
+                <div class="row music-genre mb-3">
+                    <a href="#">
+                        <img class="img-fluid" src="~/images/typesimg/@item.PhotoName" alt="@item.PhotoName" />
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

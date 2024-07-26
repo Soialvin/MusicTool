@@ -1,0 +1,76 @@
+﻿.search {
+    margin-top: 20px;
+
+    .search-list {
+        .search-title {
+            background-color: #1ABC9C;
+            color: #fff;
+            font-size: 20px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .not-data {
+            display: flex;
+            align-items: center;
+            background-color: #F2F2F2;
+            flex-direction:column;
+            img{
+                margin-bottom:10px;
+            }
+        }
+
+        ul {
+            li {
+
+                &:hover {
+                    background-color: #E7E9EB;
+                }
+
+                .song-img {
+                    width: 13%;
+                }
+
+                .content-song {
+                    width: 77%;
+
+                    .name {
+                        font-size: 20px;
+                        color: black;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: #2DAAED;
+                        }
+                    }
+
+                    .singer-name {
+                        font-size: 15px;
+                        color: #A2A2B0;
+                    }
+                }
+
+                .play-icon {
+                    width: 10%;
+
+                    .icon {
+                        font-size: 25px;
+                        color: black;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: #2DAAED;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .category-list {
+        .category-title {
+            color: #2DAAED;
+            font-size: 30px;
+        }
+    }
+}

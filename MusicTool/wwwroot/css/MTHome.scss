@@ -1,0 +1,171 @@
+﻿.MTHome {
+    .container-md {
+        padding: 0 177.5px;
+    }
+
+    .songs {
+        width: 20%;
+
+        .name {
+            font-size: 16px;
+            color: black;
+            text-decoration: none;
+            cursor:pointer;
+
+            &:hover {
+                color: #2DAAED;
+            }
+        }
+
+        .singer-name {
+            font-size: 13px;
+            color: #ACACB9;
+        }
+    }
+
+    .title {
+        color: #2DAAED;
+    }
+
+
+    .container {
+        .nav-pills {
+            .nav-item {
+                background-color: #E5E5E5;
+
+                .nav-link {
+                    color: black;
+
+                    &:hover {
+                        background-color: #E74C3C;
+                        border-radius: initial;
+                        color: #fff;
+                    }
+                }
+
+                .active {
+                    background-color: #E74C3C;
+                    border-radius: initial;
+                    color: #fff;
+                }
+
+                &:first-child {
+                    border-radius: 10px 0 0 10px;
+
+                    .active {
+                        border-radius: 10px 0 0 10px;
+                    }
+
+                    .nav-link {
+
+                        &:hover {
+                            border-radius: 10px 0 0 10px;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    border-radius: 0 10px 10px 0;
+
+                    .active {
+                        border-radius: 0 10px 10px 0;
+                    }
+
+                    .nav-link {
+
+                        &:hover {
+                            border-radius: 0 10px 10px 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .tab-content {
+            ul {
+                li {
+                    .BXH-position {
+                        cursor: pointer;
+                        width: 10%;
+                        text-decoration:none;
+                        color:black;
+                        pointer-events:none;
+
+                        .song-img-BXH {
+                            display: none;
+                        }
+
+                        .position {
+                            font-size: 25px;
+                        }
+                    }
+
+                    .BXH-content {
+                        width: 90%;
+
+                        .song-name-BXH {
+                            font-size: 20px;
+                            cursor: pointer;
+                            text-decoration:none;
+                            color:black;
+
+                            &:hover {
+                                color: #2DAAED;
+                            }
+                        }
+
+                        .singer-name-BXH {
+                            font-size: 13px;
+                            color: #ACACAC;
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        .BXH-position {
+                            display: flex;
+                            position: relative;
+                            width: 30%;
+                            pointer-events:auto;
+
+                            .song-img-BXH {
+                                display: block;
+                            }
+
+                            .position {
+                                background-color: #E74C3C;
+                                color: #fff;
+                                position: absolute;
+                                bottom: 0;
+                                padding: 0 10px;
+                            }
+                        }
+
+                        .BXH-content {
+                            width: 70%;
+                        }
+                    }
+
+                    &:nth-child(2) {
+                        .BXH-position {
+
+                            .position {
+                                font-size: 25px;
+                                color: #1ABC9C;
+                            }
+                        }
+                    }
+
+                    &:nth-child(3) {
+                        .BXH-position {
+
+                            .position {
+                                font-size: 25px;
+                                color: #F39C12;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,92 @@
+﻿@model MusicTool.Models.DTO.SongAndSingerAndCategoryEdit
+@{
+    ViewData["Title"] = "Edit song";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    <link href="~/css/EditSong.css" rel="stylesheet" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/js/multi-select-tag.js"></script>
+}
+
+<div class="container">
+    <h3 class="title">Thêm bài hát</h3>
+    <div class="edit">
+        <form id="edit-song" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label">ID</label>
+                <input type="text" asp-for="editSongRequest.Id" readonly class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tên bài hát</label>
+                <input type="text" asp-for="editSongRequest.Name" class="form-control">
+                <span asp-validation-for="editSongRequest.Name" class="err-validation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Lời bài hát<span class="err-validation"> (Hãy nhớ kết thúc câu bằng dấu chấm và xuống hàng nhé!!)</span></label>
+                <textarea class="form-control" asp-for="editSongRequest.Lyrics" rows="4"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Hình ảnh</label>
+                <input class="form-control" type="file" name="PhotoName" id="PhotoName">
+                <span asp-validation-for="editSongRequest.PhotoName" class="err-validation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nhạc</label>
+                <input class="form-control" type="file" name="SongFile" id="SongFile">
+                <span asp-validation-for="editSongRequest.SongFile" class="err-validation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ca sĩ</label>
+                <select asp-for="editSongRequest.SingerId" id="singers" multiple>
+                    @foreach (var item in Model.singerList ?? Enumerable.Empty<MusicTool.Models.DTO.Singer>())
+                    {
+                        var isSelected = false;
+                        if (Model.editSongRequest != null && Model.editSongRequest.SingerId != null)
+                        {
+                            isSelected = Model.editSongRequest.SingerId.Contains(item.Id);
+                        }
+                        if (isSelected)
+                        {
+                            <option value="@item.Id" selected>@item.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="editSongRequest.SingerId" class="err-validation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Thể loại</label>
+                <select asp-for="editSongRequest.CategoryId" id="categorys" multiple>
+                    @foreach (var item in Model.categoryList ?? Enumerable.Empty<MusicTool.Models.DTO.Category>())
+                    {
+                        var isSelected = false;
+                        if (Model.editSongRequest != null && Model.editSongRequest.CategoryId != null)
+                        {
+                            isSelected = Model.editSongRequest.CategoryId.Contains(item.Id);
+                        }
+                        if (isSelected)
+                        {
+                            <option value="@item.Id" selected>@item.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="editSongRequest.CategoryId" class="err-validation"></span>
+            </div>
+            <div class="function-btn">
+                <a class="btn btn-primary" asp-action="Index">Quay lại</a>
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    new MultiSelectTag('singers');
+    new MultiSelectTag('categorys')
+</script>

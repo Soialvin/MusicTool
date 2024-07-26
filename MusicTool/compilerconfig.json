@@ -1,0 +1,102 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/MTHome.css",
+    "inputFile": "wwwroot/css/MTHome.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Layout.css",
+    "inputFile": "wwwroot/css/Layout.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/SongDetail.css",
+    "inputFile": "wwwroot/css/SongDetail.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Ranking.css",
+    "inputFile": "wwwroot/css/Ranking.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/SongList.css",
+    "inputFile": "wwwroot/css/SongList.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/AdIndex.css",
+    "inputFile": "wwwroot/css/AdIndex.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/AdminLayout.css",
+    "inputFile": "wwwroot/css/AdminLayout.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/SongIndex.css",
+    "inputFile": "wwwroot/css/SongIndex.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/CreateSong.css",
+    "inputFile": "wwwroot/css/CreateSong.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/EditSong.css",
+    "inputFile": "wwwroot/css/EditSong.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/SingerIndex.css",
+    "inputFile": "wwwroot/css/SingerIndex.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/CreateSinger.css",
+    "inputFile": "wwwroot/css/CreateSinger.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/EditSinger.css",
+    "inputFile": "wwwroot/css/EditSinger.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/AccountIndex.css",
+    "inputFile": "wwwroot/css/AccountIndex.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/CreateAccount.css",
+    "inputFile": "wwwroot/css/CreateAccount.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/EditAccount.css",
+    "inputFile": "wwwroot/css/EditAccount.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/CategoryIndex.css",
+    "inputFile": "wwwroot/css/CategoryIndex.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/CreateCategory.css",
+    "inputFile": "wwwroot/css/CreateCategory.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/EditCategory.css",
+    "inputFile": "wwwroot/css/EditCategory.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Paging.css",
+    "inputFile": "wwwroot/css/Paging.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Login.css",
+    "inputFile": "wwwroot/css/Login.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/HoverImg.css",
+    "inputFile": "wwwroot/css/HoverImg.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Search.css",
+    "inputFile": "wwwroot/css/Search.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/User.css",
+    "inputFile": "wwwroot/css/User.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/SingerList.css",
+    "inputFile": "wwwroot/css/SingerList.scss"
+  }
+]

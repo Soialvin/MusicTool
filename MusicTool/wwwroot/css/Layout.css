@@ -1,0 +1,149 @@
+﻿@font-face {
+  font-family: Roboto;
+  src: url("../font/RobotoCondensed-Italic-VariableFont_wght.ttf");
+  src: url("../font/RobotoCondensed-VariableFont_wght.ttf");
+}
+.web-body {
+  box-sizing: border-box;
+  font-family: Roboto;
+  margin: 0;
+  padding: 0;
+}
+
+.web-body header {
+  border-bottom: 1px solid #ECECEC;
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.web-body header .navbar-brand img {
+  width: 80px;
+}
+.web-body header #navbarSupportedContent ul li a:hover {
+  color: #2DAAED;
+}
+.web-body header #navbarSupportedContent ul li .active-nav {
+  color: #2DAAED;
+}
+.web-body header #navbarSupportedContent ul .dropdown .dropdown-menu .dropdown-item:hover {
+  background-color: #2DAAED;
+  color: #fff;
+}
+.web-body header #navbarSupportedContent .search-box {
+  position: relative;
+}
+.web-body header #navbarSupportedContent .search-box form input {
+  background: #F2F2F2;
+}
+.web-body header #navbarSupportedContent .search-box .result-box {
+  max-height: 200px;
+  width: calc(100% - 15px);
+  overflow-y: auto;
+  position: absolute;
+  z-index: 1;
+  margin-top: 10px;
+  background-color: #fff;
+  padding: 0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+.web-body header #navbarSupportedContent .search-box .result-box li {
+  list-style: none;
+}
+.web-body header #navbarSupportedContent .search-box .result-box li .item-search {
+  text-decoration: none;
+  color: black;
+  padding: 5px 20px;
+  display: block;
+  width: auto;
+}
+.web-body header #navbarSupportedContent .search-box .result-box li .item-search:hover {
+  background-color: #2DAAED;
+  color: #fff;
+}
+.web-body header #navbarSupportedContent .Login-Signup {
+  position: relative;
+}
+.web-body header #navbarSupportedContent .Login-Signup .nav-link {
+  height: 50px;
+}
+.web-body header #navbarSupportedContent .Login-Signup .nav-link img {
+  height: 100%;
+  border-radius: 50%;
+}
+.web-body header #navbarSupportedContent .Login-Signup .dropdown-menu {
+  position: absolute;
+}
+.web-body header #navbarSupportedContent .Login-Signup .dropdown-menu li .dropdown-item-ed {
+  text-decoration: none;
+  color: black;
+  padding: 5px 20px;
+  display: block;
+  width: auto;
+}
+.web-body header #navbarSupportedContent .Login-Signup .dropdown-menu li .dropdown-item-ed:hover {
+  background-color: #2DAAED;
+  color: #fff;
+}
+.web-body header #navbarSupportedContent .Login-Signup a {
+  width: 110px;
+}
+.web-body .container .image-slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+.web-body .container .image-slider::before, .web-body .container .image-slider::after {
+  position: absolute;
+  top: 0;
+  width: 15%;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+.web-body .container .image-slider::before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+.web-body .container .image-slider::after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+@keyframes play {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.web-body .container .image-slider .image-slider-track {
+  animation: play 40s linear infinite;
+}
+.web-body footer {
+  background-color: #F5F5F5;
+}
+.web-body footer .footer-title {
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+}
+.web-body footer .col-md-6 {
+  display: flex;
+  flex-direction: column;
+}
+.web-body footer .col-md-6 a {
+  text-decoration: none;
+  color: #969896;
+  margin: 0 0 5px 5px;
+}
+.web-body footer .col-md-6 a:hover {
+  color: #2DAAEE;
+}
+.web-body footer .social {
+  margin-bottom: 10px;
+}
+.web-body footer .social .ic-tsocial {
+  width: 50px;
+}
+.web-body footer .app .ic-tdownload {
+  width: 120px;
+}

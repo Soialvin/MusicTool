@@ -1,0 +1,110 @@
+﻿@model MusicTool.Models.DTO.IndexAccountRequest
+
+@{
+    ViewData["Title"] = "Admin Account";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    <link href="~/css/AccountIndex.css" rel="stylesheet" asp-append-version="true" />
+}
+
+<div class="container">
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body"></div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <h3 class="title">Quản lý tài khoản</h3>
+    <div class="row function-btn mb-2">
+        <div class="col-sm-4">
+            <form class="d-flex frm-search" asp-action="Search">
+                <input class="form-control me-2" type="search" name="key" placeholder="Nhập tên tài khoản" aria-label="Search">
+                <button class="btn btn-outline-primary" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+        <div class="col-sm-8 d-flex flex-row-reverse">
+            <a class="btn btn-outline-primary" asp-action="Create">
+                <i class="fa-solid fa-plus"></i>
+            </a>
+        </div>
+    </div>
+    <div class="admin-index table-responsive">
+        <table class="table align-middle table-hover text-center">
+            <thead>
+                <tr>
+                    <th class="id">ID</th>
+                    <th class="account-img">Ảnh</th>
+                    <th class="account-username">Tên tài khoản</th>
+                    <th class="account-email">Email</th>
+                    <th class="type">Loại tài khoản</th>
+                    <th class="usertype">Người dùng</th>
+                    <th class="vip">Ngày hết hạn VIP</th>
+                    <th class="quantity">Bài hát tải lên</th>
+                    <th class="date">Ngày tạo</th>
+                    <th class="work"></th>
+                    <th class="work"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.List != null)
+                {
+                    foreach (var item in Model.List)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>
+                                <img src="~/images/Accounts/@item.PhotoName" class="img-fluid" alt="@item.PhotoName" />
+                            </td>
+                            <td>@item.UserName</td>
+                            <td>@item.Email</td>
+                            <td>@(item.Type ? "Admin" : "User")</td>
+                            <td>@(item.UserType != null ? (item.UserType == "normal" ? "Thường" : item.UserType) : "Không")</td>
+                            <td>
+                                @{
+                                    if (item.VIPs != null && item.VIPs.Count() > 0)
+                                    {
+                                        <text>@item.VIPs.Max(x => x.VIPExpirationDate).Value.ToString("dd/MM/yyyy")</text>
+                                    }
+                                    else
+                                    {
+                                        <text>Không</text>
+                                    }
+                                }
+                            </td>
+                            <td>@(item.Songs != null ? item.Songs.Count() : 0)</td>
+                            <td>@(item.CreatedDate.HasValue ? item.CreatedDate.Value.ToString("dd/MM/yyyy") : "Chưa có")</td>
+                            <td class="work">
+                                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </a>
+                            </td>
+                            <td class="work">
+                                <button onclick="Delete(@item.Id,'Account')" type="button" class="btn btn-outline-danger" data-bs-target="#myModal">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <partial name="_Paging" />
+</div>
+<script src="~/js/SongIndex.js"></script>

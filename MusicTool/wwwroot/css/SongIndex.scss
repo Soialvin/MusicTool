@@ -1,0 +1,99 @@
+﻿.container {
+    .modal {
+        .modal-body {
+            .frm-delete {
+                display: flex;
+                justify-content: center;
+
+                .delete-content {
+                    font-size: 20px;
+                }
+            }
+
+            .demo {
+                display: flex;
+                align-items: center;
+
+                img {
+                    width: 150px;
+                }
+            }
+
+            .lyric-content {
+                .lyric-name {
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+
+                .content {
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 10;
+                    transition: -webkit-line-clamp 0.5s ease;
+
+                    p {
+                        margin: 0;
+                    }
+                }
+
+                &.expanded {
+                    .content {
+                        -webkit-line-clamp: unset;
+                    }
+                }
+
+                #toggleButton {
+                    cursor: pointer;
+                    font-weight: bold;
+
+                    &:hover {
+                        color: #2DAAED;
+                    }
+                }
+            }
+        }
+
+        .modal-footer {
+            button {
+                width: 100px;
+            }
+        }
+    }
+
+    .title {
+        padding: 5px 0 0 0;
+    }
+
+    .function-btn {
+        .frm-search {
+            button {
+                min-width: auto;
+            }
+        }
+    }
+
+    .admin-index {
+        table {
+            thead {
+                tr {
+                    th {
+                        min-width: 100px;
+                    }
+
+                    .id {
+                        min-width: auto;
+                    }
+
+                    .account-name, .singer-name {
+                        min-width: 150px;
+                    }
+                }
+            }
+
+            .work {
+                min-width: 50px;
+            }
+        }
+    }
+}

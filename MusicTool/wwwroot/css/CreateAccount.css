@@ -1,0 +1,18 @@
+﻿.container .title {
+  padding: 5px 0 0 0;
+}
+.container .create {
+  width: 50%;
+  margin: 0 auto;
+}
+.container .create form .err-validation {
+  color: red;
+}
+.container .create form .function-btn {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.container .create form .function-btn .btn {
+  width: 100px;
+}

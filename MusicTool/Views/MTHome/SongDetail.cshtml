@@ -1,0 +1,121 @@
+﻿@model MusicTool.Models.DTO.DataDetail
+@{
+    ViewData["Title"] = "Song detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/css/SongDetail.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/HoverImg.css" rel="stylesheet" asp-append-version="true" />
+}
+
+<div class="song-detail mt-2">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="name" id="name">@Model.Song.Name</div>
+            <div class="play-music">
+                <div class="ware">
+                    <div class="ware1"></div>
+                    <div class="ware1"></div>
+                    <div class="ware1"></div>
+                </div>
+                <div id="songId" style="display:none;">@Model.Song.Id</div>
+                <div id="songFile" style="display:none;">@Model.Song.SongFile</div>
+                <img id="img-song" src="~/images/Songs/@Model.Song.PhotoName" class="img-fluid" alt="@Model.Song.PhotoName" />
+                <div class="icon">
+                    <i class="fa-solid fa-backward" id="back"></i>
+                    <i class="fa-solid fa-play" id="play"></i>
+                    <i class="fa-solid fa-forward" id="next"></i>
+                </div>
+                <span id="currentStart">0:00</span>
+                <div class="bar">
+                    <input type="range" id="seek" min="0" value="0" max="100" />
+                    <div class="bar2" id="bar2"></div>
+                    <div class="dot"></div>
+                </div>
+                <span id="currentEnd">0:00</span>
+                <div class="vol">
+                    <i class="fa-solid fa-volume-low me-2" id="vol_icon"></i>
+                    <input type="range" id="vol" min="0" value="30" max="100" />
+                    <div class="vol_bar"></div>
+                    <div class="dot" id="vol_dot"></div>
+                </div>
+            </div>
+            <div class="download">
+                <a href="~/Songs/@Model.Song.SongFile" download="@Model.Song.NameNoDiacritics" onclick="updateDownloadCount(@Model.Song.Id)">
+                    <i class="fa-solid fa-download"></i>
+                </a>
+            </div>
+            <div class="lyric mb-3">
+                <div class="lyric-name d-flex">
+                    Lời bài hát: <p class="m-0 px-2" id="lyric-name">@Model.Song.Name</p>
+                </div>
+                <hr />
+                <div class="lyric-content">
+                    <div class="content" id="content">
+                        @Model.Song.Lyrics
+                    </div>
+                    <div class="text-center" id="toggleButton" onclick="toggleText()">Xem toàn bộ <i class="fa-solid fa-arrow-down"></i></div>
+                </div>
+            </div>
+            <div class="col-md">
+                <h3 class="title text-uppercase">Nhạc việt</h3>
+                <div class="row mb-4">
+                    @foreach (var item in Model.SongList)
+                    {
+                        <div class="col-md-2 songs">
+                            <a asp-action="SongDetail" asp-route-id="@item.Id" class="img-hover">
+                                <img src="~/images/Songs/@item.PhotoName" class="img-fluid" alt="@item.PhotoName" />
+                                <div class="overlay">
+                                    <i class="fa-regular fa-circle-play"></i>
+                                </div>
+                            </a>
+                            <a asp-action="SongDetail" asp-route-id="@item.Id" class="name">@item.Name</a>
+                            <div class="singer-name">
+                                @Html.Raw(item.Song_Singer != null && item.Song_Singer.Any()
+                                         ? string.Join(" - ", item.Song_Singer.Select(x => x.Singer.Name))
+                                         : "Chưa có")
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="playlist-name text-uppercase">
+                Nghe tiếp
+            </div>
+            <ul class="list-group list-group-flush">
+                @foreach (var item in Model.RelatedSong)
+                {
+                    <li class="list-group-item">
+                        <div class="row playlist-play" id="@item.Song.Id">
+                            <div class="song-file" style="display:none;">@item.Song.SongFile</div>
+                            <div class="img-song" style="display:none;">@item.Song.PhotoName</div>
+                            <div class="lyric-song" style="display:none;">
+                                @item.Song.Lyrics
+                            </div>
+                            <div class="col-sm-2">
+                                <i class="fa-regular fa-circle-play"></i>
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="song-name-playlist">
+                                    @item.Song.Name
+                                </div>
+                                <div class="singer-playlist">
+                                    @Html.Raw(item.Song.Song_Singer != null && item.Song.Song_Singer.Any()
+                                             ? string.Join(" - ", item.Song.Song_Singer.Select(x => x.Singer.Name))
+                                             : "Chưa có")
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/Lyric.js" asp-append-version="true"></script>
+<script src="~/js/PlayMusic.js" asp-append-version="true"></script>
+<script src="~/js/Download.js" asp-append-version="true"></script>
+<script>
+    formatLyric();
+</script>

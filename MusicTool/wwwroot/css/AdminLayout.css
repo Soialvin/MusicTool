@@ -1,0 +1,99 @@
+﻿@font-face {
+  font-family: Roboto;
+  src: url("../font/RobotoCondensed-Italic-VariableFont_wght.ttf");
+  src: url("../font/RobotoCondensed-VariableFont_wght.ttf");
+}
+.web-body {
+  box-sizing: border-box;
+  font-family: Roboto;
+  margin: 0;
+  padding: 0;
+}
+
+.web-body .admin-board .menu-bar {
+  position: fixed;
+  width: 16%;
+  height: 100%;
+  z-index: 10;
+  box-shadow: 3px 0 3px 0 rgba(0, 0, 0, 0.1), 2px 0 2px -1px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+.web-body .admin-board .menu-bar .logo {
+  display: flex;
+  justify-content: center;
+}
+.web-body .admin-board .menu-bar .logo img {
+  width: 100px;
+}
+.web-body .admin-board .menu-bar .menu {
+  padding: 0 10px 0 0;
+}
+.web-body .admin-board .menu-bar .menu .active {
+  background-color: #5D87FF;
+  color: #fff;
+}
+.web-body .admin-board .menu-bar .menu .small-cap {
+  padding: 12px 30px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.web-body .admin-board .menu-bar .menu .menu-item {
+  border: none;
+  font-size: 18px;
+  list-style: none;
+  padding: 12px 30px;
+  border-radius: 0 60px 60px 0;
+  cursor: pointer;
+}
+.web-body .admin-board .menu-bar .menu .menu-item:hover {
+  background-color: #EEF3FF;
+  color: #2DAAED;
+}
+.web-body .admin-board .menu-bar .menu .menu-item.active:hover {
+  background-color: #5D87FF;
+  color: #fff;
+}
+.web-body .admin-board .ad-display {
+  position: relative;
+  width: 84%;
+  left: 16%;
+}
+.web-body .admin-board .ad-display .ad-header {
+  position: fixed;
+  background-color: #fff;
+  height: 50px;
+  width: 84%;
+  z-index: 1;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+}
+.web-body .admin-board .ad-display .ad-header .nav-menu {
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+.web-body .admin-board .ad-display .ad-header .nav-menu .nav-menu-item {
+  font-size: 20px;
+}
+.web-body .admin-board .ad-display .ad-header .nav-menu .nav-menu-item .nav-link {
+  height: 50px;
+}
+.web-body .admin-board .ad-display .ad-header .nav-menu .nav-menu-item .nav-link img {
+  height: 100%;
+  border-radius: 50%;
+}
+.web-body .admin-board .ad-display .ad-header .nav-menu .nav-menu-item .dropdown-menu li .dropdown-item-ed {
+  text-decoration: none;
+  color: black;
+  padding: 5px 20px;
+  display: block;
+}
+.web-body .admin-board .ad-display .ad-header .nav-menu .nav-menu-item .dropdown-menu li .dropdown-item-ed:hover {
+  background-color: #EEF3FF;
+  color: #2DAAED;
+}
+.web-body .admin-board .ad-display .ad-content {
+  position: relative;
+  top: 50px;
+}

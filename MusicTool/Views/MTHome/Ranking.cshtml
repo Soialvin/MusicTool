@@ -1,0 +1,62 @@
+﻿@model MusicTool.Models.DTO.SongAndCateroryList
+
+@{
+    ViewData["Title"] = "Rangking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/css/Ranking.css" rel="stylesheet" asp-append-version="true" />
+}
+
+<div class="ranking">
+    <div class="row">
+        <div class="col-sm-8 rank-list">
+            <div class="rank-title">
+                Bảng xếp hạng Trending Music
+            </div>
+            <ul class="list-group list-group-flush">
+                @for (int i = 0; i < Model.ListeningRantings.Count(); i++)
+                {
+                    <li class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col-sm-1">
+                                <div class="rank">
+                                    @(i+1)
+                                </div>
+                            </div>
+                            <div class="col-sm-11">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-2 song-img">
+                                        <img src="~/images/Songs/@Model.ListeningRantings[i].PhotoName" class="img-fluid" alt="@Model.ListeningRantings[i].PhotoName" />
+                                    </div>
+                                    <div class="col-sm-9 content-song">
+                                        <a asp-action="SongDetail" asp-route-id="@Model.ListeningRantings[i].Id" class="name">@Model.ListeningRantings[i].Name</a>
+                                        <div class="singer-name">
+                                            @Html.Raw(Model.ListeningRantings[i].Song_Singer != null && Model.ListeningRantings[i].Song_Singer.Any()
+                                                     ? string.Join(" - ", Model.ListeningRantings[i].Song_Singer.Select(x => x.Singer.Name))
+                                                     : "Chưa có")
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1 play-icon">
+                                        <a asp-action="SongDetail" asp-route-id="@Model.ListeningRantings[i].Id" class="fa-solid fa-play icon"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="col-sm-4 category-list">
+            <div class="category-title text-uppercase">
+                Thể loại
+            </div>
+            @foreach (var item in Model.CategoryList)
+            {
+                <div class="row music-genre mb-3">
+                    <a href="#">
+                        <img class="img-fluid" src="~/images/typesimg/@item.PhotoName" alt="@item.PhotoName" />
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

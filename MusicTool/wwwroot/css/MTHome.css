@@ -1,0 +1,112 @@
+﻿.MTHome .container-md {
+  padding: 0 177.5px;
+}
+.MTHome .songs {
+  width: 20%;
+}
+.MTHome .songs .name {
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.MTHome .songs .name:hover {
+  color: #2DAAED;
+}
+.MTHome .songs .singer-name {
+  font-size: 13px;
+  color: #ACACB9;
+}
+.MTHome .title {
+  color: #2DAAED;
+}
+.MTHome .container .nav-pills .nav-item {
+  background-color: #E5E5E5;
+}
+.MTHome .container .nav-pills .nav-item .nav-link {
+  color: black;
+}
+.MTHome .container .nav-pills .nav-item .nav-link:hover {
+  background-color: #E74C3C;
+  border-radius: initial;
+  color: #fff;
+}
+.MTHome .container .nav-pills .nav-item .active {
+  background-color: #E74C3C;
+  border-radius: initial;
+  color: #fff;
+}
+.MTHome .container .nav-pills .nav-item:first-child {
+  border-radius: 10px 0 0 10px;
+}
+.MTHome .container .nav-pills .nav-item:first-child .active {
+  border-radius: 10px 0 0 10px;
+}
+.MTHome .container .nav-pills .nav-item:first-child .nav-link:hover {
+  border-radius: 10px 0 0 10px;
+}
+.MTHome .container .nav-pills .nav-item:last-child {
+  border-radius: 0 10px 10px 0;
+}
+.MTHome .container .nav-pills .nav-item:last-child .active {
+  border-radius: 0 10px 10px 0;
+}
+.MTHome .container .nav-pills .nav-item:last-child .nav-link:hover {
+  border-radius: 0 10px 10px 0;
+}
+.MTHome .container .tab-content ul li .BXH-position {
+  cursor: pointer;
+  width: 10%;
+  text-decoration: none;
+  color: black;
+  pointer-events: none;
+}
+.MTHome .container .tab-content ul li .BXH-position .song-img-BXH {
+  display: none;
+}
+.MTHome .container .tab-content ul li .BXH-position .position {
+  font-size: 25px;
+}
+.MTHome .container .tab-content ul li .BXH-content {
+  width: 90%;
+}
+.MTHome .container .tab-content ul li .BXH-content .song-name-BXH {
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.MTHome .container .tab-content ul li .BXH-content .song-name-BXH:hover {
+  color: #2DAAED;
+}
+.MTHome .container .tab-content ul li .BXH-content .singer-name-BXH {
+  font-size: 13px;
+  color: #ACACAC;
+}
+.MTHome .container .tab-content ul li:nth-child(1) .BXH-position {
+  display: flex;
+  position: relative;
+  width: 30%;
+  pointer-events: auto;
+}
+.MTHome .container .tab-content ul li:nth-child(1) .BXH-position .song-img-BXH {
+  display: block;
+}
+.MTHome .container .tab-content ul li:nth-child(1) .BXH-position .position {
+  background-color: #E74C3C;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  padding: 0 10px;
+}
+.MTHome .container .tab-content ul li:nth-child(1) .BXH-content {
+  width: 70%;
+}
+.MTHome .container .tab-content ul li:nth-child(2) .BXH-position .position {
+  font-size: 25px;
+  color: #1ABC9C;
+}
+.MTHome .container .tab-content ul li:nth-child(3) .BXH-position .position {
+  font-size: 25px;
+  color: #F39C12;
+}

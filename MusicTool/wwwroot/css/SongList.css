@@ -1,0 +1,156 @@
+﻿.song-list .title {
+  font-size: 30px;
+  color: #2DAAED;
+}
+.song-list .music-list .category-button {
+  margin: 0;
+  margin-bottom: 20px;
+}
+.song-list .music-list .category-button .active {
+  background-color: #E74C3C;
+  color: #fff;
+}
+.song-list .music-list .category-button .active:hover {
+  background-color: #E74C3C;
+  color: #fff;
+}
+.song-list .music-list .category-button a {
+  display: flex;
+  width: auto;
+  border-radius: 8px;
+  text-decoration: none;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  margin: 5px;
+}
+.song-list .music-list .category-button a:hover {
+  background-color: #E74C3C;
+  color: #fff;
+}
+.song-list .music-list .category-button a i {
+  font-size: 10px;
+  margin: 2px;
+}
+.song-list .music-list ul li:hover {
+  background-color: #E7E9EB;
+}
+.song-list .music-list ul li .song-img {
+  width: 13%;
+}
+.song-list .music-list ul li .content-song {
+  width: 77%;
+}
+.song-list .music-list ul li .content-song .name {
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+.song-list .music-list ul li .content-song .name:hover {
+  color: #2DAAED;
+}
+.song-list .music-list ul li .content-song .singer-name {
+  font-size: 15px;
+  color: #A2A2B0;
+}
+.song-list .music-list ul li .play-icon {
+  width: 10%;
+}
+.song-list .music-list ul li .play-icon .icon {
+  font-size: 25px;
+  color: black;
+}
+.song-list .music-list ul li .play-icon .icon:hover {
+  color: #2DAAED;
+}
+.song-list .container .nav-pills .nav-item {
+  background-color: #E5E5E5;
+}
+.song-list .container .nav-pills .nav-item .nav-link {
+  color: black;
+}
+.song-list .container .nav-pills .nav-item .nav-link:hover {
+  background-color: #E74C3C;
+  border-radius: initial;
+  color: #fff;
+}
+.song-list .container .nav-pills .nav-item .active {
+  background-color: #E74C3C;
+  border-radius: initial;
+  color: #fff;
+}
+.song-list .container .nav-pills .nav-item:first-child {
+  border-radius: 10px 0 0 10px;
+}
+.song-list .container .nav-pills .nav-item:first-child .active {
+  border-radius: 10px 0 0 10px;
+}
+.song-list .container .nav-pills .nav-item:first-child .nav-link:hover {
+  border-radius: 10px 0 0 10px;
+}
+.song-list .container .nav-pills .nav-item:last-child {
+  border-radius: 0 10px 10px 0;
+}
+.song-list .container .nav-pills .nav-item:last-child .active {
+  border-radius: 0 10px 10px 0;
+}
+.song-list .container .nav-pills .nav-item:last-child .nav-link:hover {
+  border-radius: 0 10px 10px 0;
+}
+.song-list .container .tab-content ul li .BXH-position {
+  cursor: pointer;
+  width: 10%;
+  text-decoration: none;
+  color: black;
+  pointer-events: none;
+}
+.song-list .container .tab-content ul li .BXH-position .song-img-BXH {
+  display: none;
+}
+.song-list .container .tab-content ul li .BXH-position .position {
+  font-size: 25px;
+}
+.song-list .container .tab-content ul li .BXH-content {
+  width: 90%;
+}
+.song-list .container .tab-content ul li .BXH-content .song-name-BXH {
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.song-list .container .tab-content ul li .BXH-content .song-name-BXH:hover {
+  color: #2DAAED;
+}
+.song-list .container .tab-content ul li .BXH-content .singer-name-BXH {
+  font-size: 13px;
+  color: #ACACAC;
+}
+.song-list .container .tab-content ul li:nth-child(1) .BXH-position {
+  display: flex;
+  position: relative;
+  width: 30%;
+  pointer-events: auto;
+}
+.song-list .container .tab-content ul li:nth-child(1) .BXH-position .song-img-BXH {
+  display: block;
+}
+.song-list .container .tab-content ul li:nth-child(1) .BXH-position .position {
+  background-color: #E74C3C;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  padding: 0 10px;
+}
+.song-list .container .tab-content ul li:nth-child(1) .BXH-content {
+  width: 70%;
+}
+.song-list .container .tab-content ul li:nth-child(2) .BXH-position .position {
+  font-size: 25px;
+  color: #1ABC9C;
+}
+.song-list .container .tab-content ul li:nth-child(3) .BXH-position .position {
+  font-size: 25px;
+  color: #F39C12;
+}

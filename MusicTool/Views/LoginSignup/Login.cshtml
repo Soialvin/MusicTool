@@ -1,0 +1,31 @@
+﻿@model MusicTool.Models.DTO.AddLoginRequest
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LoginSignupLayout.cshtml";
+}
+
+<form method="post" asp-action="Login">
+    <h1>Đăng nhập</h1>
+    <div class="input-box">
+        <input type="text" placeholder="Tên tài khoản" asp-for="UserName">
+        <i class="fa-solid fa-user"></i>
+        <span asp-validation-for="UserName" class="err-validation"></span>
+    </div>
+    <div class="input-box">
+        <input type="password" placeholder="Mật khẩu" asp-for="Password">
+        <i class="fa-solid fa-lock"></i>
+        <span asp-validation-for="Password" class="err-validation"></span>
+        @if (ViewBag.ErrAccount != null)
+        {
+            <span class="err-validation">@ViewBag.ErrAccount</span>
+        }
+    </div>
+    <button type="submit" class="btn">Đăng nhập</button>
+    <div class="register-link">
+        <p>
+            Chưa có tài khoản ?
+            <a asp-action="Signup">Đăng ký</a>
+        </p>
+    </div>
+</form>

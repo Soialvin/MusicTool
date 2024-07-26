@@ -1,0 +1,46 @@
+﻿@model X.PagedList.IPagedList<MusicTool.Models.Domain.Singer>
+
+@{
+    ViewData["Title"] = "Singer list";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/css/SingerList.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/HoverImg.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/Paging.css" rel="stylesheet" asp-append-version="true" />
+}
+<div class="singer-list">
+    <div class="title-and-fillter">
+        <h3 class="title text-uppercase">Nghệ sĩ</h3>
+        <div class="fillter">
+            <a class="text-uppercase @(ViewBag.key == null ? "active" : "")" asp-action="SingerList" asp-controller="MTHome">Tất cả</a>
+            @for (char ch = 'a'; ch <= 'z'; ++ch) {
+                <a class="text-uppercase @(ViewBag.key == ch ? "active" : "")" asp-action="SingerList" asp-controller="MTHome" asp-route-key="@ch">@ch</a>
+            }
+        </div>
+    </div>
+    <div class="row singer-content">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-md-2 singers">
+                    <a asp-action="SongDetailBySinger" asp-route-singerId="@item.Id" class="img-hover">
+                        <img src="~/images/Singers/@item.PhotoName" class="img-fluid" alt="@item.PhotoName" />
+                        <div class="overlay"></div>
+                    </a>
+                    <a asp-action="SongDetailBySinger" asp-route-singerId="@item.Id" class="name">@item.Name</a>
+                </div>
+            }
+        }
+    </div>
+    @if (Model != null && Model.Any() && Model.PageCount != 1)
+    {
+        <div class="pagination justify-content-center m-t-20">
+            <a asp-action="SingerList" asp-route-key="@ViewBag.key" asp-route-page="@(Model.PageNumber - 1)" class="page-item @(Model.PageNumber == 1 ? "disabled" : "")"><i class="fa-solid fa-arrow-left"></i></a>
+            @for (int i = 0; i < Model.PageCount; i++)
+            {
+                <a asp-action="SingerList" asp-route-key="@ViewBag.key" asp-route-page="@(i+1)" class="page-item @(Model.PageNumber == i+1 ? "selected" : "")">@(i + 1)</a>
+            }
+            <a asp-action="SingerList" asp-route-key="@ViewBag.key" asp-route-page="@(Model.PageNumber + 1)" class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")"><i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    }
+</div>

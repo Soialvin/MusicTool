@@ -1,0 +1,18 @@
+﻿.container .title {
+  padding: 5px 0 0 0;
+}
+.container .edit {
+  width: 50%;
+  margin: 0 auto;
+}
+.container .edit form .err-validation {
+  color: red;
+}
+.container .edit form .function-btn {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.container .edit form .function-btn .btn {
+  width: 100px;
+}

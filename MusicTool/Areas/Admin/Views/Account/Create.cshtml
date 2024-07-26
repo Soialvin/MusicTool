@@ -1,0 +1,49 @@
+﻿@model MusicTool.Models.DTO.AddAccountRequest
+@{
+    ViewData["Title"] = "Create account";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    <link href="~/css/CreateAccount.css" rel="stylesheet" asp-append-version="true" />
+}
+<div class="container">
+    <h3 class="title">Thêm tài khoản</h3>
+    <div class="create">
+        <form id="create-account" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label">Tên tài khoản</label>
+                <input type="text" asp-for="UserName" class="form-control">
+                <span asp-validation-for="UserName" class="err-validation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mật khẩu</label>
+                <input type="password" asp-for="Password" class="form-control">
+                <span asp-validation-for="Password" class="err-validation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tên người dùng</label>
+                <input type="text" asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="err-validation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Hình ảnh</label>
+                <input class="form-control" type="file" name="PhotoName" id="PhotoName">
+                <span asp-validation-for="PhotoName" class="err-validation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="text" asp-for="Email" class="form-control">
+                <span asp-validation-for="Email" class="err-validation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Loại tài khoản</label>
+                <select asp-for="Type" class="form-select" aria-label="Default select example" id="accountType">
+                    <option value="false">User</option>
+                    <option value="true">Admin</option>
+                </select>
+            </div>
+            <div class="function-btn">
+                <a class="btn btn-primary" asp-action="Index">Quay lại</a>
+                <button type="submit" class="btn btn-primary">Thêm mới</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿.search {
+  margin-top: 20px;
+}
+.search .search-list .search-title {
+  background-color: #1ABC9C;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.search .search-list .not-data {
+  display: flex;
+  align-items: center;
+  background-color: #F2F2F2;
+  flex-direction: column;
+}
+.search .search-list .not-data img {
+  margin-bottom: 10px;
+}
+.search .search-list ul li:hover {
+  background-color: #E7E9EB;
+}
+.search .search-list ul li .song-img {
+  width: 13%;
+}
+.search .search-list ul li .content-song {
+  width: 77%;
+}
+.search .search-list ul li .content-song .name {
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+.search .search-list ul li .content-song .name:hover {
+  color: #2DAAED;
+}
+.search .search-list ul li .content-song .singer-name {
+  font-size: 15px;
+  color: #A2A2B0;
+}
+.search .search-list ul li .play-icon {
+  width: 10%;
+}
+.search .search-list ul li .play-icon .icon {
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+}
+.search .search-list ul li .play-icon .icon:hover {
+  color: #2DAAED;
+}
+.search .category-list .category-title {
+  color: #2DAAED;
+  font-size: 30px;
+}

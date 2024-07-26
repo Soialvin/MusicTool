@@ -1,0 +1,59 @@
+﻿.container .modal .modal-body .frm-delete {
+  display: flex;
+  justify-content: center;
+}
+.container .modal .modal-body .frm-delete .delete-content {
+  font-size: 20px;
+}
+.container .modal .modal-body .demo {
+  display: flex;
+  align-items: center;
+}
+.container .modal .modal-body .demo img {
+  width: 150px;
+}
+.container .modal .modal-body .lyric-content .lyric-name {
+  font-weight: bold;
+  font-size: 20px;
+}
+.container .modal .modal-body .lyric-content .content {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 10;
+  transition: -webkit-line-clamp 0.5s ease;
+}
+.container .modal .modal-body .lyric-content .content p {
+  margin: 0;
+}
+.container .modal .modal-body .lyric-content.expanded .content {
+  -webkit-line-clamp: unset;
+}
+.container .modal .modal-body .lyric-content #toggleButton {
+  cursor: pointer;
+  font-weight: bold;
+}
+.container .modal .modal-body .lyric-content #toggleButton:hover {
+  color: #2DAAED;
+}
+.container .modal .modal-footer button {
+  width: 100px;
+}
+.container .title {
+  padding: 5px 0 0 0;
+}
+.container .function-btn .frm-search button {
+  min-width: auto;
+}
+.container .admin-index table thead tr th {
+  min-width: 100px;
+}
+.container .admin-index table thead tr .id {
+  min-width: auto;
+}
+.container .admin-index table thead tr .account-name, .container .admin-index table thead tr .singer-name {
+  min-width: 150px;
+}
+.container .admin-index table .work {
+  min-width: 50px;
+}

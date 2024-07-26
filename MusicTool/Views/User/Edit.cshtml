@@ -1,0 +1,112 @@
+﻿@model MusicTool.Models.DTO.EditAccountRequest;
+
+@{
+    ViewData["Title"] = "User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/css/User.css" rel="stylesheet" asp-append-version="true" />
+}
+<div class="user">
+    <div class="row user-content">
+        <div class="col-md-2 user-menu">
+            <div class="name-photo-acc">
+                <img src="~/images/accounts/@Model.PhotoName" class="img-fluid" alt="@Model.PhotoName" />
+                <p>@Model.UserName</p>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" asp-action="Edit" asp-route-id ="@Model.Id">Thông tin tài khoản</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-action="Logout" asp-controller="LoginSignup">Đăng xuất</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10 user-display">
+            <div class="display-title">
+                Quản lý tài khoản
+            </div>
+            <div class="edit">
+                <form id="edit-account" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">ID</label>
+                        <input type="text" asp-for="Id" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tên tài khoản</label>
+                        <input type="text" asp-for="UserName" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Mật khẩu</label>
+                        <input type="password" asp-for="Password" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Hình ảnh</label>
+                        <input class="form-control" type="file" name="PhotoName" id="PhotoName">
+                        <span asp-validation-for="PhotoName" class="err-validation"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tên người dùng</label>
+                        <input type="text" asp-for="Name" class="form-control">
+                        <span asp-validation-for="Name" class="err-validation"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" asp-for="Email" class="form-control">
+                        <span asp-validation-for="Email" class="err-validation"></span>
+                    </div>
+                    <div class="function-btn">
+                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                    </div>
+                </form>
+                <div class="vip">
+                    <i class="fa-solid fa-crown"></i>
+                    <div class="date-vip">
+                        @if (Model.Date.HasValue)
+                        {
+                            <text>Tài khoản VIP hết hạn vào: @Model.Date.Value.ToString("dd/MM/yyyy")</text>
+                        }
+                        else
+                        {
+                            <text>Tài khoản chưa đăng ký VIP</text>
+                        }
+                    </div>
+                    <div class="box">
+                        <div class="box-card-vip">
+                            <a asp-action="VIP" asp-route-price="29000" asp-route-accountId="@Model.Id" asp-route-type="month">
+                                <p class="package-name">GÓI 
+                                    <br>
+                                    <span>Tháng</span>
+                                </p>
+                                <p class="package-price">
+                                    <span>29.000</span>
+                                    <br>
+                                    Đồng
+                                </p>
+                                <p class="txt-buy-now">
+                                    Mua ngay 
+                                </p>
+                            </a>
+                        </div>
+                        <div class="box-card-vip mt-3">
+                            <a asp-action="VIP" asp-route-price="299000" asp-route-accountId="@Model.Id" asp-route-type="year">
+                                <p class="package-name">
+                                    GÓI
+                                    <br>
+                                    <span>Năm</span>
+                                </p>
+                                <p class="package-price">
+                                    <span>299.000</span>
+                                    <br>
+                                    Đồng
+                                </p>
+                                <p class="txt-buy-now">
+                                    Mua ngay
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

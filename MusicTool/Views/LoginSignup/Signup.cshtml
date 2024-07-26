@@ -1,0 +1,36 @@
+﻿@model MusicTool.Models.DTO.AddAccountRequest
+
+@{
+    ViewData["Title"] = "Signup";
+    Layout = "~/Views/Shared/_LoginSignupLayout.cshtml";
+}
+
+<form method="post" asp-action="Signup">
+    <h1>Đăng ký</h1>
+    <div class="input-box">
+        <input type="text" placeholder="Tên tài khoản" asp-for="UserName">
+        <i class="fa-solid fa-user"></i>
+        <span asp-validation-for="UserName" class="err-validation"></span>
+    </div>
+    <div class="input-box">
+        <input type="password" placeholder="Mật khẩu" asp-for="Password">
+        <i class="fa-solid fa-lock"></i>
+        <span asp-validation-for="Password" class="err-validation"></span>
+    </div>
+    <div class="input-box">
+        <input type="text" asp-for="Name" placeholder="Tên người dùng">
+        <i class="fa-solid fa-address-card"></i>
+    </div>
+    <div class="input-box">
+        <input type="email" asp-for="Email" placeholder="Email">
+        <i class="fa-solid fa-envelope"></i>
+        <span asp-validation-for="Email" class="err-validation"></span>
+    </div>
+    <button type="submit" class="btn">Đăng ký</button>
+    <div class="register-link">
+        <p>
+            Đã có tài khoản ?
+            <a asp-action="Login">Đăng nhập</a>
+        </p>
+    </div>
+</form>

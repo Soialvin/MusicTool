@@ -1,0 +1,12 @@
+﻿@font-face {
+    font-family: Roboto;
+    src: url('../font/RobotoCondensed-Italic-VariableFont_wght.ttf');
+    src: url('../font/RobotoCondensed-VariableFont_wght.ttf');
+}
+
+.web-body{
+    box-sizing:border-box;
+    font-family:Roboto;
+    margin:0;
+    padding:0
+}

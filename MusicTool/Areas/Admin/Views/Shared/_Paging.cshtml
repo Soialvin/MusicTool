@@ -1,0 +1,15 @@
+﻿@{
+    <link href="~/css/Paging.css" rel="stylesheet" asp-append-version="true" />
+}
+
+@if (Model.List != null && Model.List.PageCount != 1)
+{
+    <div class="pagination justify-content-center m-t-20">
+        <a asp-action="@Model.ActionName" asp-route-page="@(Model.List.PageNumber - 1)" asp-route-key="@Model.Key" class="page-item @(Model.List.PageNumber == 1 ? "disabled" : "")"><i class="fa-solid fa-arrow-left"></i></a>
+        @for (int i = 0; i < Model.List.PageCount; i++)
+        {
+            <a asp-action="@Model.ActionName" asp-route-key="@Model.Key" asp-route-page="@(i+1)" class="page-item @(Model.List.PageNumber == i+1 ? "selected" : "")">@(i + 1)</a>
+        }
+        <a asp-action="@Model.ActionName" asp-route-page="@(Model.List.PageNumber + 1)" asp-route-key="@Model.Key" class="page-item @(Model.List.PageNumber == Model.List.PageCount ? "disabled" : "")"><i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+}

@@ -1,0 +1,43 @@
+﻿.singer-list {
+  margin-top: 20px;
+}
+.singer-list .title-and-fillter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.singer-list .title-and-fillter .title {
+  margin: 0;
+  color: #2DAAED;
+}
+.singer-list .title-and-fillter .fillter {
+  font-size: 20px;
+}
+.singer-list .title-and-fillter .fillter a {
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+}
+.singer-list .title-and-fillter .fillter a:hover {
+  color: #2DAAED;
+}
+.singer-list .title-and-fillter .fillter .active {
+  color: #2DAAED;
+}
+.singer-list .singer-content {
+  margin-top: 20px;
+}
+.singer-list .singer-content .singers {
+  margin-bottom: 10px;
+}
+.singer-list .singer-content .singers img {
+  width: 600px;
+}
+.singer-list .singer-content .singers .name {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+.singer-list .singer-content .singers .name:hover {
+  color: #2DAAED;
+}

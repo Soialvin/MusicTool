@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Admin home";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    <link href="~/css/AdIndex.css" rel="stylesheet" asp-append-version="true" />
+}
+<div class="admin-index">
+    <div class="btn-and-content">
+        <h3 class="title">Thống kê doanh thu đăng ký VIP năm</h3>
+        <select id="statistical-year" class="form-select" aria-label="Default select example">
+            @foreach (var item in ViewBag.Year)
+            {
+                <option value="@item">@item</option>
+            }
+        </select>
+    </div>
+    <div class="chart" style="width:95%;margin:0 auto;">
+        <canvas id="myChart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    let myChart;
+    let selectedYear = $('#statistical-year').val();
+    getdata(selectedYear);
+
+    $('#statistical-year').change(function () {
+        let currentYear = $('#statistical-year').val();
+        getdata(currentYear);
+    });
+
+    function getdata(currentYear) {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("Revenue", "AdminHome")',
+            data: { year: currentYear },
+            dataType: "json",
+            success: function (data) {
+                if (data === null) {
+                    return;
+                }
+                setdata(data);
+                updateChart();
+            },
+            error: function (xhr, status, error) {
+                console.error("Error: ", status, error);
+            }
+        });
+    }
+
+    function setdata(data) {
+        const labels = data.map(item => `tháng ${item.month}`);
+        const datas = data.map(item => item.totalPrice);
+        chartData = {
+            labels: labels,
+            datasets: [{
+                label: `VND`,
+                data: datas,
+                borderWidth: 1
+            }]
+        };
+    }
+
+    function updateChart() {
+        var ctx = document.getElementById('myChart').getContext('2d');
+        if (myChart) {
+            myChart.data.labels = chartData.labels;
+            myChart.data.datasets[0].data = chartData.datasets[0].data;
+            myChart.update();
+        } else {
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: chartData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+    }
+</script>

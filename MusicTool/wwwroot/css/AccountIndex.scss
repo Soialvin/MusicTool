@@ -1,0 +1,63 @@
+﻿.container {
+    .modal {
+        .modal-body {
+            .frm-delete {
+                display: flex;
+                justify-content: center;
+
+                .delete-content {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .modal-footer {
+            button {
+                width: 100px;
+            }
+        }
+    }
+
+    .title {
+        padding: 5px 0 0 0;
+    }
+
+    .function-btn {
+        .frm-search {
+            button {
+                width:auto;
+            }
+        }
+    }
+
+    .admin-index {
+        table {
+
+            .work {
+                min-width: 50px;
+            }
+
+            thead {
+                tr {
+                    th {
+                        min-width: 100px;
+                    }
+
+                    .id {
+                        min-width: auto;
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    td {
+                        img {
+                            width: 70px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
